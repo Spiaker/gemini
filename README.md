@@ -60,3 +60,47 @@ Mac/Linux 安装 Deno:
 
 - https://github.com/tech-shrimp/gemini-playground
 - https://github.com/PublicAffairs/openai-gemini
+
+## 项目总结
+这是一个 Gemini 2.0 代理项目，用于在国内环境下代理 Google Gemini API，实现免费使用 Google Gemini 的强大 AI 模型。
+
+## 项目概述
+名称: gemini
+类型: API 代理服务
+目标: 允许国内用户通过代理访问 Google Gemini API，绕过地区限制
+兼容性: 兼容 OpenAI 格式，可对接多种 AI 客户端
+主要功能
+API 代理: 代理 Google Gemini 的 chat/completions, embeddings, models 等接口
+WebSocket 支持: 处理实时流式响应
+格式转换: 将 Gemini 响应转换为 OpenAI 兼容格式
+多模型支持: 支持 Gemini 1.5 Pro 等多个模型
+## 技术架构
+主入口: src/index.js - Cloudflare Workers 入口文件，处理 WebSocket 和 API 请求
+API 代理: src/api_proxy/worker.mjs - 核心代理逻辑，处理 Gemini API 请求和响应转换
+Deno 支持: src/deno_index.ts - 支持 Deno 部署
+部署方式: 支持本地部署和 Deno 部署
+## 关键特性
+免费使用: 利用 Deno 免费额度提供免费服务
+国内直连: 解决 Google Gemini 在国内的访问限制
+兼容性: 支持 ChatBox、Cherry Studio、Cursor、Cline 等客户端
+流式处理: 支持 SSE (Server-Sent Events) 流式响应
+安全性: 包含安全设置和内容过滤
+## 部署方式
+本地部署: 推荐部署到国外服务器（如新加坡）
+Deno 部署: 通过 Deno Deploy 提供云端服务
+## 项目结构
+
+gemini/
+├── deno.json
+├── deploy.sh
+├── docker-compose.yml
+├── Dockerfile
+├── LICENSE
+├── package.json
+├── README.md
+└── src/
+    ├── api_proxy/
+    │   └── worker.mjs          # API 代理核心逻辑
+    ├── deno_index.ts          # Deno 入口文件
+    └── index.js              # Cloudflare Workers 入口
+这个项目是一个开源的 Gemini API 代理解决方案，旨在让国内用户能够方便地使用 Google 的强大 AI 模型。
