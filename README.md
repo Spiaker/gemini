@@ -1,4 +1,6 @@
-# Gemini 2.0 代理
+# 演示：https://spiaker.github.io
+
+## Gemini 2.0 代理
 
 使用 Deno 免费代理 Google Gemini，国内直连，不限地区/网络环境，打开即用。
 
